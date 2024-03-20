@@ -17,8 +17,6 @@ app.get("/", (req, res) => {
   res.json("Hello");
 }) 
 
-const server = http.createServer(app);
-// start the Express server
-server.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
