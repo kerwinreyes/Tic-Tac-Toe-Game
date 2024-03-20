@@ -1,25 +1,24 @@
 import express from "express";
 import cors from "cors";
 import results from "./routes/results.js";
-import http from "http";
-import mongoose from "mongoose";
+import http from 'http'
 const PORT = process.env.PORT || 5050;
 const app = express();
 
 app.use(cors({
-  origin: 'https://tic-tac-toe-game-kerwin.vercel.app',
+  origin: ['https://tic-tac-toe-game-kerwin.vercel.app'],
   methods: ["POST", "GET"],
   credentials: true
 }));
 app.use(express.json());
 
 app.use("/results", results);
-const server = http.createServer(app);
+app.get("/", (req, res) => {
+  res.json("Hello");
+}) 
 
-mongoose.connect(process.env.MONGO_ATLAS_URL).then(() => {
-  server.listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
-  });
-}).catch((err) => {
-  process.exit(1);
+const server = http.createServer(app);
+// start the Express server
+server.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
