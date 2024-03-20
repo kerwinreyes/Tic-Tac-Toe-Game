@@ -10,6 +10,7 @@ import App from './App.tsx'
 import Game from "./components/Game";
 import Scoreboard from "./components/Scoreboard";
 import Homepage from './components/Homepage.tsx';
+import { Analytics } from '@vercel/analytics/react';
 import './index.css'
 
 const router = createBrowserRouter([
@@ -53,5 +54,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <Analytics />
   </React.StrictMode>,
 )
