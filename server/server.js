@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 5050;
 const app = express();
 
 app.use(cors({
-  origin: 'https://yourdeployedsite.com'
+  origin: 'https://tic-tac-toe-game-kerwin.vercel.app'
 }));
 app.use(express.json());
 app.use("/results", results);
