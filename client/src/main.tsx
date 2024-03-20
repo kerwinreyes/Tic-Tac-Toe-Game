@@ -8,7 +8,6 @@ import {
 import App from './App.tsx'
 
 import Game from "./components/Game";
-import Scoreboard from "./components/Scoreboard";
 import Homepage from './components/Homepage.tsx';
 import { Analytics } from '@vercel/analytics/react';
 import './index.css'
@@ -27,26 +26,6 @@ const router = createBrowserRouter([
   {
     path: "/play",
     element: <Game />,
-  },
-  {
-    path: "/edit/:id",
-    element: <App />,
-    children: [
-      {
-        path: "/edit/:id",
-        element: <Scoreboard />,
-      },
-    ],
-  },
-  {
-    path: "/create",
-    element: <App />,
-    children: [
-      {
-        path: "/create",
-        element: <Scoreboard />,
-      },
-    ],
   },
 ]);
 
