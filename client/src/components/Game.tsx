@@ -24,7 +24,7 @@ const Game = () => {
         score1,
         score2,
       }
-      const response = await fetch("https://tic-tac-toe-game-api.vercel.app/results", {
+      const response = await fetch("https://tic-tac-toe-game-9pdw.onrender.com/results", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

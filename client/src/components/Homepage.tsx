@@ -7,7 +7,7 @@ const Homepage = () => {
     
     const getGames = async () => {
         try {
-            const response = await fetch(`https://tic-tac-toe-game-api.vercel.app/results/`)
+            const response = await fetch(`https://tic-tac-toe-game-9pdw.onrender.com/results/`)
             if (!response.ok) {
                 console.error("Error occurred")
             }
@@ -25,8 +25,12 @@ const Homepage = () => {
         <>
             <h1>Tic Tac Toe</h1>
             <div className="w-full">
-                <h2 className="my-10 text-xl">Game Data</h2>
-                <GameData gameData={results}/>
+                {
+                    !!results.length && (<>
+                        <h2 className="my-10 text-xl">Game Data</h2>
+                        <GameData gameData={results}/>
+                    </>)
+                }
             </div>
             <div className="card mt-5 ">
                 <Link to={"/play"} className="py-5 px-10 button text-white">Start New Game</Link>
