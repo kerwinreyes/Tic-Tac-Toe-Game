@@ -4,6 +4,10 @@ import results from "./routes/results.js";
 const PORT = process.env.PORT || 5050;
 const app = express();
 
+app.use(cors({
+  origin: ['https://tic-tac-toe-game-kerwin.vercel.app'],
+  methods: ["POST", "GET"],
+}));
 app.use(express.json());
 
 app.use("/results", results);
