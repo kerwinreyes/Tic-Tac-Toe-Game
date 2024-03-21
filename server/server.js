@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-  origin: ['https://tic-tac-toe-game-9pdw.onrender.com/results/'],
+  origin: ['https://tic-tac-toe-game-9pdw.onrender.com'],
   methods: ["POST", "GET"],
 }));
 app.use("/results", results);
