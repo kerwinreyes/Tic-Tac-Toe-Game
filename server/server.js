@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 5050;
 const app = express();
 
 app.use(cors({
-  origin: ['https://tic-tac-toe-game-kerwin.vercel.app'],
+  origin: ['https://tic-tac-toe-game-api.vercel.app/'],
   methods: ["POST", "GET"],
   credentials: true
 }));
