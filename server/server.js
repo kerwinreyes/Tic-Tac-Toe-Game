@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import results from "./routes/results.js";
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5050;
 const app = express();
 
 app.use(cors({
@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
   res.json("Hello"); 
 }) 
 
-app.listen(5050, () => {
+app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
 export default app
