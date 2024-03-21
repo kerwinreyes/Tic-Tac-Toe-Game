@@ -5,8 +5,12 @@ import db from "../db/connection.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  let collection = await db.collection("results");
-  let results = await collection.find({}).toArray();
+  const page = parseInt(req.query.page) || 1; // Default to page 1
+    const skip = (page - 1) * 10;
+
+    const collection = await db.collection("results");
+    const results = await collection.find({}).sort({ _id: -1 }).skip(skip).limit(10).toArray(); // Sort by newest first
+
   res.send(results).status(200);
 });
 
