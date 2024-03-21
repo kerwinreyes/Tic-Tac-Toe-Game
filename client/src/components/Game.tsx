@@ -24,7 +24,7 @@ const Game = () => {
         score1,
         score2,
       }
-      const response = await fetch("https://tic-tac-toe-game-9pdw.onrender.com/results", {
+      const response = await fetch("https://tic-tac-toe-game-9pdw.onrender.com/results/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -41,6 +41,7 @@ const Game = () => {
     }
   }
   const checkWinner = (item: string[]) => {
+    let tempWinner: string =""
     for (let combo in winningCombos) {
       winningCombos[combo].forEach((pattern) => {
         if (item[pattern[0]] === "" || item[pattern[1]] === "" || item[pattern[2]] === ""){
@@ -52,11 +53,12 @@ const Game = () => {
           }else {
             setScore2(score2 + 1)
           }
-          setWinner(turn === "X" ? player1Name : player2Name)
+          tempWinner = turn === "X" ? player1Name : player2Name
+          setWinner(tempWinner)
         } 
       })
     }
-    if(!winner && counter === 8) {
+    if(!tempWinner && counter >= 8) {
       setWinner("tie")
       setScore1(score1 + .5)
       setScore2(score2 + .5)
@@ -68,9 +70,9 @@ const Game = () => {
       return
     }
     tempCells[index] = turn
+    setCells(tempCells)
     setCounter(counter+1)
     checkWinner(tempCells)
-    setCells(tempCells)
     
     turn == "X" ? setTurn("O") : setTurn("X")
   }
