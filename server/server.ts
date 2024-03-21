@@ -1,7 +1,7 @@
-import express from "express";
 import cors from "cors";
 import results from "./routes/results.js";
 import http from 'http'
+const express = require('express');
 const PORT = process.env.PORT || 3000;
 const app = express();
 
@@ -17,6 +17,8 @@ app.get("/", (req, res) => {
   res.json("Hello");
 }) 
 
-app.listen(PORT, () => {
+app.listen(5050, () => {
   console.log(`Server listening on port ${PORT}`);
 });
+
+module.exports = app
